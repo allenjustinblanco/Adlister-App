@@ -10,3 +10,7 @@ from ads;
 
 select *
 from category;
+
+
+
+
