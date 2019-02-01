@@ -1,28 +1,28 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <dataSource name="MySQL - @localhost">
-  <database-model serializer="dbm" dbms="MYSQL" family-id="MYSQL" format-version="4.14">
+  <database-model serializer="dbm" rdbms="MYSQL" format-version="4.11">
     <root id="1">
-      <ServerVersion>5.7.25</ServerVersion>
+      <ServerVersion>5.7.24</ServerVersion>
       <DefaultEngine>InnoDB</DefaultEngine>
       <DefaultTmpEngine>InnoDB</DefaultTmpEngine>
-      <DefaultCasing>exact</DefaultCasing>
+      <DefaultCasing>mixed/mixed</DefaultCasing>
     </root>
     <schema id="2" parent="1" name="codeup_test_db">
       <Current>1</Current>
       <Visible>1</Visible>
-      <Collation>latin1_swedish_ci</Collation>
+      <Collation>utf8_general_ci</Collation>
     </schema>
     <schema id="3" parent="1" name="employees">
-      <Collation>latin1_swedish_ci</Collation>
+      <Collation>utf8_general_ci</Collation>
     </schema>
     <schema id="4" parent="1" name="information_schema">
       <Collation>utf8_general_ci</Collation>
     </schema>
     <schema id="5" parent="1" name="join_test_db">
-      <Collation>latin1_swedish_ci</Collation>
+      <Collation>utf8_general_ci</Collation>
     </schema>
     <schema id="6" parent="1" name="mysql">
-      <Collation>latin1_swedish_ci</Collation>
+      <Collation>utf8_general_ci</Collation>
     </schema>
     <schema id="7" parent="1" name="performance_schema">
       <Collation>utf8_general_ci</Collation>
@@ -32,7 +32,7 @@
     </schema>
     <schema id="9" parent="1" name="users_db">
       <Visible>1</Visible>
-      <Collation>latin1_swedish_ci</Collation>
+      <Collation>utf8_general_ci</Collation>
     </schema>
     <collation id="10" parent="1" name="armscii8_bin">
       <Charset>armscii8</Charset>
@@ -922,311 +922,194 @@
       <Charset>utf8mb4</Charset>
       <DefaultForCharset>0</DefaultForCharset>
     </collation>
-    <table id="232" parent="2" name="ads_category"/>
-    <table id="233" parent="2" name="albums"/>
-    <table id="234" parent="2" name="category"/>
-    <table id="235" parent="2" name="users"/>
-    <table id="236" parent="9" name="ads"/>
-    <table id="237" parent="9" name="ads_category"/>
-    <table id="238" parent="9" name="category"/>
-    <table id="239" parent="9" name="users"/>
-    <column id="240" parent="232" name="ads_id">
-      <Position>1</Position>
-      <DataType>int(10) unsigned|0s</DataType>
-      <NotNull>1</NotNull>
-      <ColumnKind>normal</ColumnKind>
-    </column>
-    <column id="241" parent="232" name="categories_id">
-      <Position>2</Position>
-      <DataType>int(10) unsigned|0s</DataType>
-      <NotNull>1</NotNull>
-      <ColumnKind>normal</ColumnKind>
-    </column>
-    <index id="242" parent="232" name="ads_id">
-      <ColNames>ads_id</ColNames>
-      <Type>btree</Type>
-    </index>
-    <index id="243" parent="232" name="categories_id">
-      <ColNames>categories_id</ColNames>
-      <Type>btree</Type>
-    </index>
-    <foreign-key id="244" parent="232" name="ads_category_ibfk_1">
-      <ColNames>ads_id</ColNames>
-      <RefSchemaName>codeup_test_db</RefSchemaName>
-      <RefTableName>ads</RefTableName>
-      <RefColNames>id</RefColNames>
-    </foreign-key>
-    <foreign-key id="245" parent="232" name="ads_category_ibfk_2">
-      <ColNames>categories_id</ColNames>
-      <RefSchemaName>codeup_test_db</RefSchemaName>
-      <RefTableName>category</RefTableName>
-      <RefColNames>id</RefColNames>
-    </foreign-key>
-    <column id="246" parent="233" name="id">
+    <table id="232" parent="2" name="albums"/>
+    <table id="233" parent="9" name="ads"/>
+    <table id="234" parent="9" name="ads_category"/>
+    <table id="235" parent="9" name="category"/>
+    <table id="236" parent="9" name="users"/>
+    <column id="237" parent="232" name="id">
       <Position>1</Position>
       <DataType>int(10) unsigned|0s</DataType>
       <NotNull>1</NotNull>
       <SequenceIdentity>1</SequenceIdentity>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="247" parent="233" name="artists">
+    <column id="238" parent="232" name="artist">
       <Position>2</Position>
       <DataType>varchar(50)|0s</DataType>
-      <DefaultExpression>&apos;NONE&apos;</DefaultExpression>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="248" parent="233" name="name">
+    <column id="239" parent="232" name="name">
       <Position>3</Position>
-      <DataType>varchar(100)|0s</DataType>
-      <NotNull>1</NotNull>
+      <DataType>varchar(50)|0s</DataType>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="249" parent="233" name="content">
+    <column id="240" parent="232" name="release_data">
       <Position>4</Position>
-      <DataType>text|0s</DataType>
-      <NotNull>1</NotNull>
-      <ColumnKind>normal</ColumnKind>
-    </column>
-    <column id="250" parent="233" name="release_date">
-      <Position>5</Position>
       <DataType>int(11)|0s</DataType>
-      <NotNull>1</NotNull>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="251" parent="233" name="sales">
-      <Position>6</Position>
+    <column id="241" parent="232" name="sales">
+      <Position>5</Position>
       <DataType>float|0s</DataType>
-      <NotNull>1</NotNull>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="252" parent="233" name="genre">
-      <Position>7</Position>
-      <DataType>varchar(100)|0s</DataType>
-      <DefaultExpression>&apos;none&apos;</DefaultExpression>
+    <column id="242" parent="232" name="genre">
+      <Position>6</Position>
+      <DataType>char(10)|0s</DataType>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <key id="253" parent="233" name="PRIMARY">
+    <key id="243" parent="232" name="PRIMARY">
       <NameSurrogate>1</NameSurrogate>
       <ColNames>id</ColNames>
       <Primary>1</Primary>
     </key>
-    <column id="254" parent="234" name="categories">
-      <Position>1</Position>
-      <DataType>varchar(20)|0s</DataType>
-      <ColumnKind>normal</ColumnKind>
-    </column>
-    <column id="255" parent="234" name="id">
-      <Position>2</Position>
-      <DataType>int(10) unsigned|0s</DataType>
-      <NotNull>1</NotNull>
-      <SequenceIdentity>1</SequenceIdentity>
-      <ColumnKind>normal</ColumnKind>
-    </column>
-    <key id="256" parent="234" name="PRIMARY">
-      <NameSurrogate>1</NameSurrogate>
-      <ColNames>id</ColNames>
-      <Primary>1</Primary>
-    </key>
-    <column id="257" parent="235" name="user_id">
+    <column id="244" parent="233" name="id">
       <Position>1</Position>
       <DataType>int(10) unsigned|0s</DataType>
       <NotNull>1</NotNull>
       <SequenceIdentity>1</SequenceIdentity>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="258" parent="235" name="user_name">
-      <Position>2</Position>
-      <DataType>varchar(50)|0s</DataType>
-      <ColumnKind>normal</ColumnKind>
-    </column>
-    <column id="259" parent="235" name="user_email">
-      <Position>3</Position>
-      <DataType>varchar(50)|0s</DataType>
-      <ColumnKind>normal</ColumnKind>
-    </column>
-    <column id="260" parent="235" name="user_password">
-      <Position>4</Position>
-      <DataType>varchar(50)|0s</DataType>
-      <ColumnKind>normal</ColumnKind>
-    </column>
-    <index id="261" parent="235" name="user_name">
-      <ColNames>user_name</ColNames>
-      <Unique>1</Unique>
-      <Type>btree</Type>
-    </index>
-    <index id="262" parent="235" name="user_email">
-      <ColNames>user_email</ColNames>
-      <Unique>1</Unique>
-      <Type>btree</Type>
-    </index>
-    <index id="263" parent="235" name="user_password">
-      <ColNames>user_password</ColNames>
-      <Unique>1</Unique>
-      <Type>btree</Type>
-    </index>
-    <key id="264" parent="235" name="PRIMARY">
-      <NameSurrogate>1</NameSurrogate>
-      <ColNames>user_id</ColNames>
-      <Primary>1</Primary>
-    </key>
-    <key id="265" parent="235" name="user_name">
-      <ColNames>user_name</ColNames>
-      <UnderlyingIndexName>user_name</UnderlyingIndexName>
-    </key>
-    <key id="266" parent="235" name="user_email">
-      <ColNames>user_email</ColNames>
-      <UnderlyingIndexName>user_email</UnderlyingIndexName>
-    </key>
-    <key id="267" parent="235" name="user_password">
-      <ColNames>user_password</ColNames>
-      <UnderlyingIndexName>user_password</UnderlyingIndexName>
-    </key>
-    <column id="268" parent="236" name="id">
-      <Position>1</Position>
-      <DataType>int(10) unsigned|0s</DataType>
-      <NotNull>1</NotNull>
-      <SequenceIdentity>1</SequenceIdentity>
-      <ColumnKind>normal</ColumnKind>
-    </column>
-    <column id="269" parent="236" name="title">
+    <column id="245" parent="233" name="title">
       <Position>2</Position>
       <DataType>varchar(50)|0s</DataType>
       <NotNull>1</NotNull>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="270" parent="236" name="description">
+    <column id="246" parent="233" name="description">
       <Position>3</Position>
       <DataType>varchar(200)|0s</DataType>
       <NotNull>1</NotNull>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="271" parent="236" name="category">
+    <column id="247" parent="233" name="category">
       <Position>4</Position>
       <DataType>varchar(50)|0s</DataType>
       <NotNull>1</NotNull>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="272" parent="236" name="user_id">
+    <column id="248" parent="233" name="user_id">
       <Position>5</Position>
       <DataType>int(10) unsigned|0s</DataType>
       <NotNull>1</NotNull>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <index id="273" parent="236" name="user_id">
+    <index id="249" parent="233" name="user_id">
       <ColNames>user_id</ColNames>
       <Type>btree</Type>
     </index>
-    <key id="274" parent="236" name="PRIMARY">
+    <key id="250" parent="233" name="PRIMARY">
       <NameSurrogate>1</NameSurrogate>
       <ColNames>id</ColNames>
       <Primary>1</Primary>
     </key>
-    <foreign-key id="275" parent="236" name="ads_ibfk_1">
+    <foreign-key id="251" parent="233" name="ads_ibfk_1">
       <ColNames>user_id</ColNames>
       <RefSchemaName>users_db</RefSchemaName>
       <RefTableName>users</RefTableName>
       <RefColNames>id</RefColNames>
     </foreign-key>
-    <column id="276" parent="237" name="ads_id">
+    <column id="252" parent="234" name="ads_id">
       <Position>1</Position>
       <DataType>int(10) unsigned|0s</DataType>
       <NotNull>1</NotNull>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="277" parent="237" name="categories_id">
+    <column id="253" parent="234" name="categories_id">
       <Position>2</Position>
       <DataType>int(10) unsigned|0s</DataType>
       <NotNull>1</NotNull>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <index id="278" parent="237" name="ads_id">
+    <index id="254" parent="234" name="ads_id">
       <ColNames>ads_id</ColNames>
       <Type>btree</Type>
     </index>
-    <index id="279" parent="237" name="categories_id">
+    <index id="255" parent="234" name="categories_id">
       <ColNames>categories_id</ColNames>
       <Type>btree</Type>
     </index>
-    <foreign-key id="280" parent="237" name="ads_category_ibfk_1">
+    <foreign-key id="256" parent="234" name="ads_category_ibfk_1">
       <ColNames>ads_id</ColNames>
       <RefSchemaName>users_db</RefSchemaName>
       <RefTableName>ads</RefTableName>
       <RefColNames>id</RefColNames>
     </foreign-key>
-    <foreign-key id="281" parent="237" name="ads_category_ibfk_2">
+    <foreign-key id="257" parent="234" name="ads_category_ibfk_2">
       <ColNames>categories_id</ColNames>
       <RefSchemaName>users_db</RefSchemaName>
       <RefTableName>category</RefTableName>
       <RefColNames>id</RefColNames>
     </foreign-key>
-    <column id="282" parent="238" name="categories">
+    <column id="258" parent="235" name="categories">
       <Position>1</Position>
       <DataType>varchar(20)|0s</DataType>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="283" parent="238" name="id">
+    <column id="259" parent="235" name="id">
       <Position>2</Position>
       <DataType>int(10) unsigned|0s</DataType>
       <NotNull>1</NotNull>
       <SequenceIdentity>1</SequenceIdentity>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <key id="284" parent="238" name="PRIMARY">
+    <key id="260" parent="235" name="PRIMARY">
       <NameSurrogate>1</NameSurrogate>
       <ColNames>id</ColNames>
       <Primary>1</Primary>
     </key>
-    <column id="285" parent="239" name="id">
+    <column id="261" parent="236" name="id">
       <Position>1</Position>
       <DataType>int(10) unsigned|0s</DataType>
       <NotNull>1</NotNull>
       <SequenceIdentity>1</SequenceIdentity>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="286" parent="239" name="user_name">
+    <column id="262" parent="236" name="user_name">
       <Position>2</Position>
       <DataType>varchar(50)|0s</DataType>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="287" parent="239" name="user_email">
+    <column id="263" parent="236" name="user_email">
       <Position>3</Position>
       <DataType>varchar(50)|0s</DataType>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="288" parent="239" name="user_password">
+    <column id="264" parent="236" name="user_password">
       <Position>4</Position>
       <DataType>varchar(50)|0s</DataType>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <index id="289" parent="239" name="user_name">
+    <index id="265" parent="236" name="user_name">
       <ColNames>user_name</ColNames>
       <Unique>1</Unique>
       <Type>btree</Type>
     </index>
-    <index id="290" parent="239" name="user_email">
+    <index id="266" parent="236" name="user_email">
       <ColNames>user_email</ColNames>
       <Unique>1</Unique>
       <Type>btree</Type>
     </index>
-    <index id="291" parent="239" name="user_password">
+    <index id="267" parent="236" name="user_password">
       <ColNames>user_password</ColNames>
       <Unique>1</Unique>
       <Type>btree</Type>
     </index>
-    <key id="292" parent="239" name="PRIMARY">
+    <key id="268" parent="236" name="PRIMARY">
       <NameSurrogate>1</NameSurrogate>
       <ColNames>id</ColNames>
       <Primary>1</Primary>
     </key>
-    <key id="293" parent="239" name="user_name">
+    <key id="269" parent="236" name="user_name">
       <ColNames>user_name</ColNames>
       <UnderlyingIndexName>user_name</UnderlyingIndexName>
     </key>
-    <key id="294" parent="239" name="user_email">
+    <key id="270" parent="236" name="user_email">
       <ColNames>user_email</ColNames>
       <UnderlyingIndexName>user_email</UnderlyingIndexName>
     </key>
-    <key id="295" parent="239" name="user_password">
+    <key id="271" parent="236" name="user_password">
       <ColNames>user_password</ColNames>
       <UnderlyingIndexName>user_password</UnderlyingIndexName>
     </key>

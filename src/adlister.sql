@@ -43,17 +43,38 @@ values
 ('jobs');
 
 
-insert into users(user_email, user_password)
-values('sarahb@example.com', 'saraB'),
-      ('lexim@example.com', 'lexiM');
+insert into users(user_name, user_email, user_password)
+values('Sarah','sarahb@example.com', 'saraB'),
+      ('Lexi', 'lexim@example.com', 'lexiM'),
+      ('Justin', 'Justinb@example.com', 'Justino'),
+      ('Karla', 'Karla@example.com', 'Karlangas');
 
 
 insert into ads(title, description,category, user_id)
 values
-('example_title', 'example_description','housing', 1),
-('example_description_2', 'example_description_2','jobs', 2);
+('title1', 'ad1','housing', 1),
+('title2', 'ad2','jobs, community', 2),
+('title3', 'ad3','community, services', 3),
+('title4', 'ad4','jobs', 4),
+('title5', 'ad5','housing, services', 3),
+('title6', 'ad6','jobs', 2),
+('title7', 'ad7','housing, for sale', 4);
 
-describe category;
+
+insert into ads_category(ads_id, categories_id)
+values (1,3),
+(2, 5),
+(2, 1),
+(3,1),
+(3,2),
+(4,5),
+(5,2),
+(5,3),
+(6,5),
+(7,3),
+(7,4);
+
+
 
 
 
